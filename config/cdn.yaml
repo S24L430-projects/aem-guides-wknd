@@ -1,0 +1,16 @@
+kind: "CDN"
+version: "1"
+metadata:
+  envTypes: ["dev"]
+data:
+  trafficFilters:
+    rules:
+    # Block simple path
+    - name: block-path
+      when:
+        allOf:
+          - reqProperty: tier
+            matches: "publish"
+          - reqProperty: path
+            equals: '/us/en/faqs.html'
+      action: block
