@@ -35,8 +35,10 @@ import java.util.Optional;
 @Model(adaptables = Resource.class)
 public class HelloWorldModel {
 
-    @ValueMapValue(name=PROPERTY_RESOURCE_TYPE, injectionStrategy=InjectionStrategy.OPTIONAL)
-    @Default(values="No resourceType")
+    // public static final String PASSWORD="pass";
+
+    @ValueMapValue(name = PROPERTY_RESOURCE_TYPE, injectionStrategy = InjectionStrategy.OPTIONAL)
+    @Default(values = "No resourceType")
     protected String resourceType;
 
     @SlingObject
@@ -54,8 +56,8 @@ public class HelloWorldModel {
                 .map(Page::getPath).orElse("");
 
         message = "Hello World!\n"
-            + "Resource type is: " + resourceType + "\n"
-            + "Current page is:  " + currentPagePath + "\n";
+                + "Resource type is: " + resourceType + "\n"
+                + "Current page is:  " + currentPagePath + "\n";
     }
 
     public String getMessage() {
